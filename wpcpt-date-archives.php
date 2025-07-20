@@ -175,7 +175,7 @@ function wpcptda_render_settings_page() {
                                             <input
                                                 type="checkbox"
                                                 name="wpcptda_settings[]"
-                                                id="<?php echo esc_attr( $post__type->name ); ?>"
+                                                id="<?php echo esc_attr( $post_type->name ); ?>"
                                                 value="<?php echo esc_attr( $post_type->name ); ?>"
                                                 <?php checked( in_array( $post_type->name, $enabled_cpts ) ); ?>
                                             />
