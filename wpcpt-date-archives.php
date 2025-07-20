@@ -3,11 +3,11 @@
  * Plugin Name:       WPCPT Date Archives
  * Plugin URI:        https://hadeeroslan.my/wpcpt-date-archives
  * Description:       Enables structured date archives (e.g., /cpt-slug/year/month/) for selected Custom Post Types.
- * Version:           0.0.1
+ * Version:           0.0.2
  * Author:            Al-Hadee Mohd Roslan & Mat Gem
  * Author URI:        https://hadeeroslan.my
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * License:           GPL v3 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       wpcptda
  */
 
@@ -15,6 +15,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+// =================================================================================
+// Bahagian Auto-Updater
+// =================================================================================
+if ( file_exists(__DIR__ . '/vendor/plugin-update-checker/plugin-update-checker.php') ) {
+    require_once __DIR__ . '/vendor/plugin-update-checker/plugin-update-checker.php';
+    $myUpdateChecker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker( 'https://github.com/kodeexii/wpcpt-date-archives/', __FILE__, 'wpcpt-date-archives' );
+}
+
 
 /**
  * Hook untuk menambah rewrite rules semasa plugin diaktifkan.
