@@ -3,7 +3,7 @@
  * Plugin Name:       WPCPT Date Archives
  * Plugin URI:        https://hadeeroslan.my/wpcpt-date-archives
  * Description:       Enables structured date archives (e.g., /cpt-slug/year/month/) for selected Custom Post Types.
- * Version:           0.0.3
+ * Version:           0.0.4
  * Author:            Al-Hadee Mohd Roslan & Mat Gem
  * Author URI:        https://hadeeroslan.my
  * License:           GPL v3 or later
@@ -45,7 +45,7 @@ register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
 /**
  * Fungsi utama yang menambah rewrite rules berdasarkan CPT yang dipilih dalam settings.
  */
-add_action( 'init', 'wpcptda_add_date_archive_rules' );
+// add_action( 'init', 'wpcptda_add_date_archive_rules' );
 function wpcptda_add_date_archive_rules() {
     // Dapatkan CPT yang telah dipilih dari options table.
     $enabled_cpts = get_option( 'wpcptda_settings' );
