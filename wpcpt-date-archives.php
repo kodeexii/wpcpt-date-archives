@@ -124,9 +124,19 @@ function wpcptda_sanitize_settings( $input ) {
     }
     
     // Selepas menyimpan, kita perlu flush rewrite rules supaya perubahan berkuatkuasa serta-merta.
-    flush_rewrite_rules();
+    // flush_rewrite_rules();
 
     return $sanitized_input;
+}
+
+/**
+ * Hook ini hanya akan berjalan SELEPAS option 'wpcptda_settings' berjaya dikemaskini.
+ * Ini adalah tempat yang betul untuk flush permalinks.
+ */
+add_action( 'update_option_wpcptda_settings', 'wpcptda_flush_on_settings_update', 10, 2 );
+function wpcptda_flush_on_settings_update( $old_value, $new_value ) {
+    wpcptda_add_date_archive_rules(); // Pastikan rules baru ada sebelum flush
+    flush_rewrite_rules();
 }
 
 
